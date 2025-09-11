@@ -1,0 +1,13 @@
+{
+  "name": "authentication-guard",
+  "version": "1.0.4",
+  "description": "A dummy npm library for validating licenses (no logic yet)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"No tests yet\"",
+    "validate-license": "node cli.js"
+  },
+  "keywords": ["license", "validator", "npm", "dummy"],
+  "author": "",
+  "license": "MIT"
+}
