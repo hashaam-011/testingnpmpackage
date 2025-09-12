@@ -17,6 +17,8 @@ jobs:
           node-version: '18'
       - name: Install dependencies
         run: npm install
+        - name: Fix permissions for obfuscator
+          run: chmod +x node_modules/.bin/javascript-obfuscator
       - name: Run obfuscation build
         run: npx javascript-obfuscator src/index.js --output src/index.obf.js
       - name: Commit obfuscated code
