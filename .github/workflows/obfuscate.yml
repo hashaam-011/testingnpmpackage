@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run obfuscation build
-        run: npm run build
+  run: npx javascript-obfuscator src/index.js --output src/index.obf.js
       - name: Commit obfuscated code
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
