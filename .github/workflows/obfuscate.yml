@@ -26,7 +26,7 @@ jobs:
         run: |
           node node_modules/javascript-obfuscator/bin/javascript-obfuscator.js src/index.js --output src/index.obf.js || echo "Obfuscation step failed, continuing..."
       - name: Upload obfuscated file as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: obfuscated-js
           path: src/index.obf.js
