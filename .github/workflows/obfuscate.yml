@@ -5,13 +5,14 @@ on:
     branches:
       - main
 
-jobs:
-  permissions:
-    contents: write
-    steps:
-      - name: Checkout code
 permissions:
   contents: write
+
+jobs:
+  obfuscate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
         uses: actions/checkout@v3
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -25,12 +26,6 @@ permissions:
         run: |
           node node_modules/javascript-obfuscator/bin/javascript-obfuscator.js src/index.js --output src/index.obf.js || echo "Obfuscation step failed, continuing..."
       - name: Commit and push obfuscated code
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add src/index.obf.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
