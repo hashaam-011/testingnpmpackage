@@ -2,7 +2,9 @@
   "name": "authentication-guard",
   "version": "1.0.0",
   "main": "src/index.obf.js",
-  "obfuscate": "javascript-obfuscator src/index.js --output src/index.obf.js",
+  "scripts": {
+    "build": "javascript-obfuscator src/index.js --output src/index.obf.js"
+  },
   "devDependencies": {
     "javascript-obfuscator": "^4.1.1"
   }
