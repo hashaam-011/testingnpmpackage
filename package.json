@@ -1,11 +1,23 @@
 {
   "name": "authentication-guard",
   "version": "1.0.0",
-  "main": "src/index.obf.js",
+  "main": "dist/index.obf.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "build": "javascript-obfuscator src/index.js --output src/index.obf.js"
+    "clean": "rm -rf dist",
+    "build:bundle": "webpack --config webpack.config.js",
+    "build:obf": "javascript-obfuscator dist/index.js --output dist/index.obf.js --config obfuscator.config.json",
+    "build:types": "echo '// Type declarations here' > dist/types/index.d.ts",
+    "build": "npm run clean && npm run build:bundle && npm run build:obf && npm run build:types"
   },
   "devDependencies": {
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0",
     "javascript-obfuscator": "^4.1.1"
   }
 }
