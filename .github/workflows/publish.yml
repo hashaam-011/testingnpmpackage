@@ -3,7 +3,7 @@ name: Build and Publish Obfuscated SDK
 on:
   push:
     branches:
-      - main
+      - webpack
 
 permissions:
   contents: write
